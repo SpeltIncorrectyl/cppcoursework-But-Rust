@@ -52,8 +52,8 @@ pub fn solve(problem: Problem) -> Result<Solution, SolutionError> {
     }
 
     // Phase 2.1: allocate staff to projects they proposed
-    for allocation in allocations.iter_mut().filter(|x| x.project.is_some()) {
-        let proposer = allocation.project.as_ref().ok_or(SolutionError)?.proposer.clone();
+    for allocation in allocations.iter_mut() {
+        let Some(proposer) = allocation.project.as_ref().map(|x| x.proposer.clone()) else {continue};
         let allocatable_staff = allocatable_staff.get_mut(&RcKey::from(&proposer)).ok_or(SolutionError)?;
         if allocatable_staff.remaining >= 1 {
             allocatable_staff.remaining -= 1;
@@ -63,9 +63,9 @@ pub fn solve(problem: Problem) -> Result<Solution, SolutionError> {
     }
 
     // Phase 2.2 allocate staff to something in their subject area
-    for allocation in allocations.iter_mut().filter(|x| x.project.is_some() && x.supervisor.is_none()) {
+    for allocation in allocations.iter_mut().filter(|x| x.supervisor.is_none()) {
         for (_, allocatable_staff) in allocatable_staff.iter_mut() {
-            let project = allocation.project.as_ref().ok_or(SolutionError)?.clone();
+            let Some(project) = allocation.project.as_ref().map(|x| x.clone()) else {continue};
             if allocatable_staff.remaining >= 1 && allocatable_staff.staff.subject_areas.contains(&project.subject_area) {
                 allocatable_staff.remaining -= 1;
                 allocation.supervisor = Some(allocatable_staff.staff.clone());
