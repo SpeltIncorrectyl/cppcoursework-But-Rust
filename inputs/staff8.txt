@@ -1,0 +1,40 @@
+staff1 10 BB EE
+staff10 10 AA EE
+staff11 10 DD
+staff12 10 AA BB
+staff13 10 AA DD
+staff14 10 CC DD
+staff15 10 AA EE
+staff16 10 BB
+staff17 10 DD EE
+staff18 10 DD EE
+staff19 10 EE
+staff2 10 BB EE
+staff20 10 CC DD
+staff21 10 BB
+staff22 10 BB EE
+staff23 10 BB CC
+staff24 10 CC EE
+staff25 10 BB DD
+staff26 10 BB DD
+staff27 10 BB EE
+staff28 10 BB EE
+staff29 10 AA DD
+staff3 10 AA CC
+staff30 10 CC EE
+staff31 10 CC EE
+staff32 10 AA BB
+staff33 10 AA
+staff34 10 AA BB
+staff35 10 AA CC
+staff36 10 AA BB
+staff37 10 CC
+staff38 10 AA
+staff39 10 BB CC
+staff4 10 AA CC
+staff40 10 BB EE
+staff5 10 CC EE
+staff6 10 BB
+staff7 10 CC EE
+staff8 10 AA DD
+staff9 10 BB EE

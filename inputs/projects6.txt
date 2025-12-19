@@ -1,0 +1,8 @@
+1 staff1 1 AA everyone's first choice
+2 staff2 1 BB everyone's second choice
+3 staff3 1 CC everyone's third choice
+4 staff4 1 DD everyone's fourth choice
+5 staff1 1 AA why no one chooses me
+6 staff3 1 CC why no one chooses me
+7 staff5 1 EE why no one chooses me
+8 staff5 1 EE why no one chooses me
