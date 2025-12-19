@@ -190,10 +190,13 @@ impl Allocation {
     pub fn score(&self) -> u32 {
         let mut score = 0;
 
-        if let [x, ..] = &self.student.choices[..] && Rc::ptr_eq(x, &self.project) {score += 4};
-        if let [_, x, ..] = &self.student.choices[..] && Rc::ptr_eq(x, &self.project) {score += 3};
-        if let [_, _, x, ..] = &self.student.choices[..] && Rc::ptr_eq(x, &self.project) {score += 2};
-        if let [_, _, _, x, ..] = &self.student.choices[..] && Rc::ptr_eq(x, &self.project) {score += 1};
+        match &self.student.choices[..] {
+            [x, ..] if Rc::ptr_eq(x, &self.project) => score += 4,
+            [_, x, ..] if Rc::ptr_eq(x, &self.project) => score += 3,
+            [_, _, x, ..] if Rc::ptr_eq(x, &self.project) => score += 2,
+            [_, _, _, x, ..] if Rc::ptr_eq(x, &self.project) => score += 1,
+            _ => ()
+        }
 
         if Rc::ptr_eq(&self.project.proposer, &self.supervisor) {score += 4}
         else if self.supervisor.subject_areas.contains(&self.project.subject_area) {score += 2}
